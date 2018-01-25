@@ -287,6 +287,9 @@ exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
+
+exec ~/.screenlayout/layout.sh
+
 # Color palette used for the terminal ( ~/.extend.Xresources file )
 # Colors are gathered based on the documentation:
 # https://i3wm.org/docs/userguide.html#xresources
@@ -365,11 +368,11 @@ bar {
         separator  $i3_separator
 
 #                           border     backgr.        text
-        focused_workspace   $i3_color1 $i3_color4     $i3_text
-        active_workspace    $i3_color2 $i3_color3     $i3_color5
-        inactive_workspace  $i3_color2 $i3_color3     $i3_color6
-        binding_mode        $i3_color8 $i3_background $i3_text
-        urgent_workspace    $i3_color4 $i3_color5     $i3_color7
+        focused_workspace   #DDDDDD    #8F0000        #DDDDDD
+        active_workspace    #DDDDDD    #5F0000        #DDDDDD
+        inactive_workspace  #DDDDDD    #5F0000        #DDDDDD
+        binding_mode        #DDDDDD    #3F0000        #DDDDDD
+        urgent_workspace    #FFFFFF    #FF3333        #FFFFFF
     }
 }
 
@@ -378,13 +381,13 @@ bindsym $mod+m bar mode toggle
 
 # Theme colors
 # class                 border      backgr.     text        indic.      child_border
-client.focused          $i3_color8  $i3_color8  $i3_color11 $i3_color12
-client.focused_inactive $i3_color9  $i3_color9  $i3_color4  $i3_color10
-client.unfocused        $i3_color9  $i3_color9  $i3_color4  $i3_color10
-client.urgent           $i3_color13 $i3_color12 $i3_color4  $i3_color14
-client.placeholder      $i3_color15 $i3_color17 $i3_color16 $i3_color15 $i3_color17
+client.focused          #AAAAAA     #AAAAAA     #AAAAAA     #AAAAAA
+client.focused_inactive #800000     #800000     #800000     #800000
+client.unfocused        #800000     #800000     #800000     #800000
+client.urgent           #AF0000     #AF0000     #AF0000     #AF0000
+client.placeholder      #800000     #800000     #800000     #800000     #800000
 
-client.background       $i3_background
+client.background       #800000
 
 #############################
 ### settings for i3-gaps: ###
@@ -392,7 +395,7 @@ client.background       $i3_background
 
 # Set inner/outer gaps
 gaps inner 10
-gaps outer -4
+gaps outer 5
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -400,11 +403,11 @@ gaps outer -4
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+# smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-smart_borders on
+smart_borders no_gaps
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
 set $mode_gaps Gaps: (o) outer, (i) inner
@@ -442,7 +445,3 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-
-
-# Run xrandr script
-exec ~/.screenlayout/layout.sh
