@@ -8,15 +8,15 @@ Xft.lcdfilter: lcddefault
 
 XTerm*background: #2b2b2b
 XTerm*foreground: #e7e7e7
-XTerm*pointerColor: #16A085
+XTerm*pointerColor: #aa0000
 XTerm*faceName: Fixed
 XTerm*faceSize: 11
 
-*background:                      #272827
+*background:                      #2b2b2b
 *foreground:                      #657b83
 *fading:                          15
 *fadeColor:                       black
-*cursorColor:                     #16A085
+*cursorColor:                     #772222
 *pointerColorBackground:          #2B2C2B
 *pointerColorForeground:          #16A085
 
